@@ -7,12 +7,7 @@ const UnicornShowContainer = (props) => {
   })
  
   const fetchSpecificUnicorn = async () => {
-    const unicornId = props.match.params.id 
-    
-    const response = await fetch(`/api/v1/unicorns/${unicornId}`)
-    const parsedUnicorn = await response.json()
-    console.log(parsedUnicorn)
-    setUnicornData(parsedUnicorn.unicorn)
+    // fetch
   }
 
 
