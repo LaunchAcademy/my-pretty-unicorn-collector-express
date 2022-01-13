@@ -10,6 +10,9 @@ unicornsRouter.get("/", (req, res) => {
 
 unicornsRouter.post("/", (req, res) => {
   let newUnicornId = Unicorn.getNextUnicornId()
+  
+  console.log(req.body);
+  
   const newUnicorn = new Unicorn({ ...req.body.unicorn, newUnicornId })
 
   if (newUnicorn.save()) {
