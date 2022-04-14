@@ -6,8 +6,19 @@ const UnicornShowContainer = (props) => {
     unicornDescription: "",
   })
 
+  const id = props.match.params.unicornId
+
   const fetchSpecificUnicorn = async () => {
-    // fetch
+    try {
+      const response = await fetch(`/api/v1/unicorns/${id}`)
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
+      }
+      const responseBody = await response.json()
+      setUnicornData(responseBody.unicorn)
+    } catch (error) {
+      console.error(error.message)
+    }
   }
 
   useEffect(() => {

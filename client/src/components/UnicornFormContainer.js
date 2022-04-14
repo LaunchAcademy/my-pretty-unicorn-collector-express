@@ -7,22 +7,29 @@ const UnicornFormContainer = (props) => {
   })
 
   const handleInputFieldChange = (event) => {
-
+    setUnicornFields({
+      ...unicornFields,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
   } 
 
   const handleFormSubmit = (event) => {
-
+    event.preventDefault()
+    
+    props.addNewUnicornToApp(unicornFields)
   }
 
   return(
     <div>
-      <h1> Unicorn Form </h1>
+      <h1>Unicorn Form</h1>
 
       <form onSubmit={handleFormSubmit}>
         <label> Unicorn Name:
           <input
             type="text"
             name="unicornName"
+            onChange={handleInputFieldChange}
+            value={unicornFields.unicornName}
           />
         </label>
 
@@ -30,6 +37,8 @@ const UnicornFormContainer = (props) => {
           <input
             type="text"
             name="unicornDescription"
+            onChange={handleInputFieldChange}
+            value={unicornFields.unicornDescription}
           />
         </label>
         
