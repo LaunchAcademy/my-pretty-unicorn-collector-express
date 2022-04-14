@@ -10,10 +10,6 @@ const UnicornPageContainer = () => {
     // fetch
   }
 
-  useEffect(() => {
-    fetchUnicorns()
-  }, [])
-
   const addNewUnicornToApp = async (unicornFormFields) => {
     // fetch
   }
