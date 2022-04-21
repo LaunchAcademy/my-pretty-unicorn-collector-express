@@ -23,6 +23,8 @@ Right now, we can't see any of the unicorns from our server on the page. Let's c
 
 I wish to see a unicorn details page (about only one unicorn). The page should display all properties of a unicorn. For this, we will need to implement React Router at the top of our React app to have separate pages for the UnicornPageContainer and UnicornShowContainer respectively.
 
+Note: Make sure that `main.js` is rendering App!
+
 * Define routes in `App.js` such that router renders our app. Going to `"/"` or `"/unicorns"` should render the UnicornPageContainer as usual. Hook up App.js with your React app via main.js
 * Define a route for the `/unicorns/:id`, such that a new component, `UnicornShowContainer` is rendered on the screen
 * The `UnicornShowContainer` should display the `name` and `description` of our respective unicorn. Note: You'll need to make another fetch request when the component first renders to retrieve this information.
