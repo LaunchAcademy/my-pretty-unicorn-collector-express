@@ -14,11 +14,14 @@ unicornsRouter.post("/", (req, res) => {
 
   if (newUnicorn.save()) {
     res.status(201).json({ newUnicorn })
+
+    // res.status(201).json({ newUnicorn: newUnicorn })
   } else {
     res.status(422).json({ errors: newUnicorn.errors })
   }
 })
 
+// /api/v1/unicorns/3
 unicornsRouter.get("/:id", (req, res) => {
 
   try {
