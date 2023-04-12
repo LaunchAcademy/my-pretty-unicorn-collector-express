@@ -6,12 +6,17 @@ const UnicornShowContainer = (props) => {
     unicornDescription: "",
   })
 
-  const fetchSpecificUnicorn = async () => {
-    // fetch
+  const getSpecificUnicorn = async () => {
+    const unicornId = props.match.params.id
+    debugger
+
+    const response = await fetch(`/api/v1/unicorns/${unicornId}`)
+    const parsedUnicornData = await response.json()
+    setUnicornData(parsedUnicornData.unicorn)
   }
 
   useEffect(() => {
-    fetchSpecificUnicorn()
+    getSpecificUnicorn()
   }, [])
 
   return (

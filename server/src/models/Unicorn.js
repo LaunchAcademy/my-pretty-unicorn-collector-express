@@ -32,6 +32,8 @@ class Unicorn {
     const requiredFields = ["unicornName"]
     let isValid = true
 
+    console.log(this.unicornName)
+    
     for (const requiredField of requiredFields) {
       this.errors[requiredField] = []
       if (!this[requiredField]) {

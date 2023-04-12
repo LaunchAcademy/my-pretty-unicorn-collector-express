@@ -4,8 +4,14 @@ import unicornsRouter from "./api/v1/unicornsRouter.js"
 
 const rootRouter = new express.Router()
 
+
+rootRouter.use("*", (req, res) => {
+    res.send("helllllooooo")
+})
+
 rootRouter.use("/api/v1/unicorns", unicornsRouter)
 
 rootRouter.use("/", clientRouter)
+
 
 export default rootRouter
