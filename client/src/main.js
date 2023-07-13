@@ -3,7 +3,6 @@ import { render } from "react-dom"
 import config from "./config"
 import RedBox from "redbox-react"
 
-import UnicornPageContainer from "./components/UnicornPageContainer"
 import App from "./components/App"
 
 
