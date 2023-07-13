@@ -28,15 +28,12 @@ class Unicorn {
   }
 
   isValid() {
-    this.errors = {}
     const requiredFields = ["unicornName"]
     let isValid = true
 
     for (const requiredField of requiredFields) {
-      this.errors[requiredField] = []
-      if (!this[requiredField]) {
+      if (this[requiredField] === "") {
         isValid = false
-        this.errors[requiredField].push("can't be blank")
       }
     }
     return isValid
@@ -49,7 +46,6 @@ class Unicorn {
 
   save() {
     if (this.isValid()) {
-      delete this.errors
       this.id = this.constructor.getNextUnicornId()
       const unicorns = this.constructor.findAll()
       unicorns.push(this)

@@ -1,3 +1,33 @@
+**Student Notes**
+- spend some time talking about useState and useEffect interaction
+
+
+
+## 1.) create routes for each of the pages that we will have in our application
+On /unicorns page, the UnicornPageContainer should be the topmost component in your tree (after React Router)
+
+## Unicorn List 
+- /unicorns path should render a page with a list of unicorns 
+
+### Form
+- on the same page....
+* In the `UnicornFormContainer` ensure that when the user types into the provided form, that the input is saved to state.
+* Hook up this form with a POST fetch to persist our unicorn in `unicorns.json` file in our server.
+* After posting, the new unicorn should appear in the list on the page without needing a refresh.
+
+## Show Page / Details Page
+
+## Part 3
+
+"/unicorns/:id"
+
+* Define a route for the `/unicorns/:id`, such that a new component, `UnicornShowContainer` is rendered on the screen
+* The `UnicornShowContainer` should display the `name` and `description` of our respective unicorn. Note: You'll need to make another fetch request when the component first renders to retrieve this information.
+* Be sure to add a `Link` component from React Router, so that each `li` in our unicorns list is actually a link to a unicorn's show page
+
+
+
+
 # Get collecting with My Pretty Unicorn Collector!
 
 ![Unicorns](https://cdn.dribbble.com/users/141427/screenshots/2072640/lu_dribble_1x.png)

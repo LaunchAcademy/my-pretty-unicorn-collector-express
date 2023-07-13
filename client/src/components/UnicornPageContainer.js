@@ -6,17 +6,23 @@ import UnicornFormContainer from "./UnicornFormContainer"
 const UnicornPageContainer = () => {
   const [unicorns, setUnicornObjects] = useState([])
 
-  const fetchUnicorns = async () => {
-    // fetch
+  const getUnicorns = async () => {
+    const response = await fetch("/api/v1/unicorns")
+    const unicornData = await response.json()
+    // console.log(unicornData.unicorns)
+    setUnicornObjects(unicornData.unicorns)
   }
 
-  const addNewUnicornToApp = async (unicornFormFields) => {
-    // fetch
-  }
+  useEffect(() => {
+    getUnicorns()
+  }, [])
 
   return (
     <div>
-      <UnicornFormContainer />
+      <UnicornFormContainer 
+        setUnicornObjects={setUnicornObjects}
+        unicorns={unicorns}
+      />
 
       <UnicornIndexContainer unicorns={unicorns} />
     </div>

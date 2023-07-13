@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react"
 
 const UnicornShowContainer = (props) => {
+
+  // console.log(props.match.params.id)
+
   const [unicornData, setUnicornData] = useState({
     unicornName: "",
     unicornDescription: "",
   })
 
   const fetchSpecificUnicorn = async () => {
-    // fetch
+    const response = await fetch(`/api/v1/unicorns/${props.match.params.id}`)
+    const dataFromBackend = await response.json()
+    console.log(dataFromBackend.unicorn)
+    setUnicornData(dataFromBackend.unicorn)
   }
 
   useEffect(() => {
