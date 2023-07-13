@@ -6,18 +6,15 @@ const unicornsRouter = new express.Router()
 
 // gets all the unicorns
 unicornsRouter.get("/", (req, res) => {
-  console.log("yo from the backend list route")
   
-  res.set({ 'Content-Type': 'application/json' }).status(200).json({ unicorns: Unicorn.findAll() })
+  res.json({ unicorns: Unicorn.findAll() })
 })
 
 // adds a new unicorn
 unicornsRouter.post("/", (req, res) => {
-
-
-  console.log(req.body)
-
   let newUnicornId = Unicorn.getNextUnicornId()
+
+  // note: you need to have a key of "unicorn" in your "req.body" for this to work
   const newUnicorn = new Unicorn({ ...req.body.unicorn, newUnicornId })
 
   if (newUnicorn.save()) {
@@ -34,8 +31,6 @@ unicornsRouter.get("/:id", (req, res) => {
     const unicornId = req.params.id
 
     const unicorn = Unicorn.findById(unicornId)
-    console.log(unicorn)
-
 
     res.status(200).json({ unicorn: unicorn })
   } catch(error){

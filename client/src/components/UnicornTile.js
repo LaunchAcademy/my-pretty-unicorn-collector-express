@@ -6,9 +6,7 @@ const UnicornTile = (props) => {
 
   return(
     <div>
-      <Link to={`/unicorns/${props.id}`} >
         { props.unicornName }
-      </Link>
     </div>
   )
 }

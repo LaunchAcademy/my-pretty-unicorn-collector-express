@@ -12,31 +12,26 @@ class Unicorn {
 
   static findById(id){
     const allUnicorns = this.findAll()
-    const myUnicorn = allUnicorns.find(launcher => launcher.id == id)
+    const myUnicorn = allUnicorns.find(unicorn => unicorn.id == id)
     return myUnicorn
   }
 
   static findAll() {
     const unicornData = JSON.parse(fs.readFileSync(unicornsPath))
 
-    let unicorns = []
-    unicornData.forEach(unicorn => {
-      const newUnicorn = new Unicorn(unicorn)
-      unicorns.push(newUnicorn)
+    const unicornObjects = unicornData.map(unicorn => {
+      return new Unicorn(unicorn)
+
     })
-    return unicorns
+    return unicornObjects
   }
 
   isValid() {
-    const requiredFields = ["unicornName"]
-    let isValid = true
-
-    for (const requiredField of requiredFields) {
-      if (this[requiredField] === "") {
-        isValid = false
-      }
+    if (this.unicornName === ""){
+      return false 
+    } else {
+      return true
     }
-    return isValid
   }
 
   static getNextUnicornId() {

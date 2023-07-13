@@ -1,62 +1,38 @@
-**Student Notes**
-- spend some time talking about useState and useEffect interaction
-
-
-
-## 1.) create routes for each of the pages that we will have in our application
-On /unicorns page, the UnicornPageContainer should be the topmost component in your tree (after React Router)
-
-## Unicorn List 
-- /unicorns path should render a page with a list of unicorns 
-
-### Form
-- on the same page....
-* In the `UnicornFormContainer` ensure that when the user types into the provided form, that the input is saved to state.
-* Hook up this form with a POST fetch to persist our unicorn in `unicorns.json` file in our server.
-* After posting, the new unicorn should appear in the list on the page without needing a refresh.
-
-## Show Page / Details Page
-
-## Part 3
-
-"/unicorns/:id"
-
-* Define a route for the `/unicorns/:id`, such that a new component, `UnicornShowContainer` is rendered on the screen
-* The `UnicornShowContainer` should display the `name` and `description` of our respective unicorn. Note: You'll need to make another fetch request when the component first renders to retrieve this information.
-* Be sure to add a `Link` component from React Router, so that each `li` in our unicorns list is actually a link to a unicorn's show page
-
-
-
-
 # Get collecting with My Pretty Unicorn Collector!
 
 ![Unicorns](https://cdn.dribbble.com/users/141427/screenshots/2072640/lu_dribble_1x.png)
 
 Let's create our very own unicorn app, where we can see a list of unicorns, add new unicorns to our list, and go to individual unicorn show pages.
 
-Much of the code has already been implemented. The backend APIs are already configured. In the front-end, the component and even some JSX has already been written.
+Much of the code has already been implemented. The backend APIs endpoints are already configured for you, but be sure to familiarize yourself with what each does. In the React front-end, some of the code has been provided for you, but you need to add the logic.
 
-That said, feel free to play around with the codebase as you see fit.
 
-## Part 1
 
-Right now, we can't see any of the unicorns from our server on the page. Let's change that with a fetch request. The top level component to start is the `UnicornPageContainer`, though this may change when React Router is implemented.
+## Step 1: Unicorn Dashboard 
+We want to see all of the unicorns that are currently stored in the `unicorns.json` file appear on the page. We should see these unicorns (and the unicorn form) when navigating to "/unicorns"
 
-* Using the `UnicornPageContainer` and `UnicornIndexContainer` hook up the backend with the application such that each unicorn in `unicorns.json` is rendered as a name on the screen in a list
+#### Acceptance Criteria 
+- At the "/unicorns" path, the UnicornDashboard should be the topmost component in your tree (after React Router). Use the appropriate React Router code in `App` to set this up.
+- The UnicornDashboard renders our UnicornList component, which is responsible for displaying each unicorn on the page
+- Update the UnicornDashboard to fetch available unicorns from the `/api/v1/unicorns` endpoint
+- Add the fetched unicorns to state to display each unicorn's name
 
-## Part 2
+## Step 2: The Form and Persisting New Unicorn Buddies
 
-* In the `UnicornFormContainer` ensure that when the user types into the provided form, that the input is saved to state.
-* Hook up this form with a POST fetch to persist our unicorn in `unicorns.json` file in our server.
-* After posting, the new unicorn should appear in the list on the page without needing a refresh.
+- At the same `/unicorns` path, the new unicorn form should be displayed
+- In the `UnicornFormContainer` ensure that when the user types into the provided form, that the input is saved to state.
+- Hook up this form with a POST fetch to persist our unicorn in `unicorns.json` file in our server.
+- After posting, the new unicorn should appear in the list on the page without needing a refresh.
+- The `value` property of each input field should be reliant on a related state value
+
+Optional: 
+- Add a default unicorn name and unicorn description that a user can edit once interacting with the form
+- Add a "Clear" button that erases the text from the form (and from state)
+
+## Unicorn Details Page
 
 ## Part 3
 
-I wish to see a unicorn details page (about only one unicorn). The page should display all properties of a unicorn. For this, we will need to implement React Router at the top of our React app to have separate pages for the UnicornPageContainer and UnicornShowContainer respectively.
-
-Note: Make sure that `main.js` is rendering the `App`!
-
-* Define routes in `App.js` such that the router renders our app. Going to `"/"` or `"/unicorns"` should render the UnicornPageContainer as usual. Hook up App.js with your React app via main.js
-* Define a route for the `/unicorns/:id`, such that a new component, `UnicornShowContainer` is rendered on the screen
-* The `UnicornShowContainer` should display the `name` and `description` of our respective unicorn. Note: You'll need to make another fetch request when the component first renders to retrieve this information.
-* Be sure to add a `Link` component from React Router, so that each `li` in our unicorns list is actually a link to a unicorn's show page
+- At the path "/unicorns/:id", the `UnicornDetailsPage` should be rendered, displaying the name and description of the unicorn whose `id` matches the id in the URL e.g. `/unicorns/3` should display the unicorn that has an id of 3.
+- ensure that the appropriate fetch request is made using this id (accessible via React Router props) to populate the unicorn state for this page
+- A user can navigate to this page by clicking on the name of a unicorn from the `UnicornDashboard`. Ensure that React Router is used for navigation. No `<a>` tags.
