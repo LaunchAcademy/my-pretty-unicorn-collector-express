@@ -6,7 +6,12 @@ Let's create our very own unicorn app, where we can see a list of unicorns, add 
 
 Much of the code has already been implemented. The backend APIs endpoints are already configured for you, but be sure to familiarize yourself with what each does. In the React front-end, some of the code has been provided for you, but you need to add the logic.
 
-
+```
+git clone https://github.com/LaunchAcademy/my-pretty-unicorn-collector-express
+cd my-pretty-unicorn-collector-express
+yarn install
+yarn dev
+```
 
 ## Step 1: Unicorn Dashboard 
 We want to see all of the unicorns that are currently stored in the `unicorns.json` file appear on the page. We should see these unicorns (and the unicorn form) when navigating to "/unicorns"
