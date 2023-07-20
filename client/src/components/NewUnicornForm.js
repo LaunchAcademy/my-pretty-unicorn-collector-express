@@ -6,8 +6,6 @@ const NewUnicornForm = (props) => {
     unicornDescription: ""
   })
 
-
-
   return(
     <div>
       <h1> Unicorn Form </h1>

@@ -6,8 +6,8 @@ import NewUnicornForm from "./NewUnicornForm"
 const UnicornDashboard = () => {
   const [unicorns, setUnicornObjects] = useState([])
 
-  useEffect(() => {
-  }, [])
+  // useEffect(() => {
+  // }, [])
 
   return (
     <div>

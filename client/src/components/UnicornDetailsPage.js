@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 
 const UnicornDetailsPage = (props) => {
 
-
   const [unicornData, setUnicornData] = useState({
     unicornName: "",
     unicornDescription: "",
@@ -11,8 +10,7 @@ const UnicornDetailsPage = (props) => {
 
   return (
     <div>
-      <h4> Hello from Show </h4>
-      {unicornData.unicornName}
+      <h4> Here is the graceful unicorn: {unicornData.unicornName}</h4>
       <br />
       {unicornData.unicornDescription}
     </div>
