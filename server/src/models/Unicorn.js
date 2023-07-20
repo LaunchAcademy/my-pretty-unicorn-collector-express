@@ -4,7 +4,7 @@ import _ from "lodash"
 const unicornsPath = "unicorns.json"
 
 class Unicorn {
-  // dont forget, there is object destructuring right here!
+  // don't forget, there is object destructuring right here!
   constructor({ id, unicornName, unicornDescription}) {
     this.id = id
     this.unicornName = unicornName

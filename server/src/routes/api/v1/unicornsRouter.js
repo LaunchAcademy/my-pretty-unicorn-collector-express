@@ -6,12 +6,17 @@ const unicornsRouter = new express.Router()
 
 // gets all the unicorns
 unicornsRouter.get("/", (req, res) => {
+  console.log("hello from router")
   
   res.json({ unicorns: Unicorn.findAll() })
 })
 
 // adds a new unicorn
 unicornsRouter.post("/", (req, res) => {
+
+  console.log(req.body)
+
+
   let newUnicornId = Unicorn.getNextUnicornId()
 
   // note: you need to have a key of "unicorn" in your "req.body" for this to work
