@@ -2,11 +2,13 @@ import React from 'react'
 
 import { Link } from "react-router-dom"
 
-const UnicornTile = (props) => {
+const UnicornTile = ({ id, unicornName }) => {
 
   return(
     <div>
-        { props.unicornName }
+        <Link to={`/unicorns/${id}`}>
+          { unicornName }
+        </Link>
     </div>
   )
 }

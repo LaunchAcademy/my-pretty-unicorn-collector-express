@@ -25,7 +25,7 @@ We want to see all of the unicorns that are currently stored in the `unicorns.js
 ## Step 2: The Form and Persisting New Unicorn Buddies
 
 - At the same `/unicorns` path, the new unicorn form should be displayed
-- In the `UnicornFormContainer` ensure that when the user types into the provided form, that the input is saved to state.
+- In the `UnicornForm` ensure that when the user types into the provided form, that the input is saved to state.
 - Hook up this form with a POST fetch to persist our unicorn in `unicorns.json` file in our server.
 - After posting, the new unicorn should appear in the list on the page without needing a refresh.
 - The `value` property of each input field should be reliant on a related state value

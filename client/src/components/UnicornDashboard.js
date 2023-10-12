@@ -6,15 +6,26 @@ import NewUnicornForm from "./NewUnicornForm"
 const UnicornDashboard = () => {
   const [unicorns, setUnicornObjects] = useState([])
 
-  // useEffect(() => {
-  // }, [])
+  useEffect(() => {
+    getAllUnicorns()
+  }, [])
+
+  const getAllUnicorns = async () => {
+    const unicornResponse = await fetch("/api/v1/unicorns")
+    const parsedUnicornData = await unicornResponse.json()
+    setUnicornObjects(parsedUnicornData.unicorns)
+  }
 
   return (
-    <div>
-      <NewUnicornForm />
+    <>
+      <NewUnicornForm 
+          setUnicornObjects={setUnicornObjects}
+          existingUnicorns={unicorns}
+          getAllUnicorns={getAllUnicorns}
+      />
 
       <UnicornList unicorns={unicorns} />
-    </div>
+    </>
   )
 }
 

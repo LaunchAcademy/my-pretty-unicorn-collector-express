@@ -18,7 +18,7 @@ unicornsRouter.post("/", (req, res) => {
   const newUnicorn = new Unicorn({ ...req.body.unicorn, newUnicornId })
 
   if (newUnicorn.save()) {
-    res.status(201).json({ newUnicorn: newUnicorn })
+    res.status(201).json({ newUnicorn })
   } else {
     res.status(422).json({ errors: newUnicorn.errors })
   }
