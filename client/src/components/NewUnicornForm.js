@@ -6,15 +6,30 @@ const NewUnicornForm = (props) => {
     unicornDescription: ""
   })
 
+  const trackTypingIntoField = (event) => {
+    setUnicornFields({
+      ...unicornFields,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const persistTheUnicornSomehow = (event) => {
+    event.preventDefault()
+
+    props.addUnicorn(unicornFields)
+  }
+  
   return(
     <div>
       <h1> Unicorn Form </h1>
 
-      <form>
+      <form onSubmit={persistTheUnicornSomehow}>
         <label> Unicorn Name:
           <input
             type="text"
             name="unicornName"
+            onChange={trackTypingIntoField}
+            value={unicornFields.unicornName}
           />
         </label>
 
@@ -22,6 +37,8 @@ const NewUnicornForm = (props) => {
           <input
             type="text"
             name="unicornDescription"
+            onChange={trackTypingIntoField}
+            value={unicornFields.unicornDescription}
           />
         </label>
         

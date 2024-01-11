@@ -7,6 +7,20 @@ const UnicornDetailsPage = (props) => {
     unicornDescription: "",
   })
 
+  const getSpecificUnicorn = async () => {
+    const id = props.match.params.id
+
+    const response = await fetch(`/api/v1/unicorns/${id}`)
+
+    const unicornData = await response.json()
+
+    setUnicornData(unicornData.unicorn)
+  }
+
+  useEffect(() => {
+    getSpecificUnicorn()
+  }, [])
+
 
   return (
     <div>

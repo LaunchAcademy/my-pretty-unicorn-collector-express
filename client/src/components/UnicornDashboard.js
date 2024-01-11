@@ -6,12 +6,33 @@ import NewUnicornForm from "./NewUnicornForm"
 const UnicornDashboard = () => {
   const [unicorns, setUnicornObjects] = useState([])
 
-  // useEffect(() => {
-  // }, [])
+  const getUnicorns = async () => {
+    const response = await fetch("/api/v1/unicorns")
+    const unicornData = await response.json()
+
+    setUnicornObjects(unicornData.unicorns)
+  }
+
+  const addUnicorn = async (newUnicorn) => {
+
+    const response = await fetch("/api/v1/unicorns", { 
+      method: "POST", 
+      body: JSON.stringify({ unicorn: newUnicorn }), 
+      headers: new Headers({"content-type": "application/json"})
+    })
+
+    const postResponseData = await response.json()
+
+    setUnicornObjects([...unicorns, postResponseData.newUnicorn])
+  }
+
+  useEffect(() => {
+    getUnicorns()
+  }, [])
 
   return (
     <div>
-      <NewUnicornForm />
+      <NewUnicornForm addUnicorn={addUnicorn} />
 
       <UnicornList unicorns={unicorns} />
     </div>

@@ -29,8 +29,10 @@ unicornsRouter.get("/:id", (req, res) => {
 
   try {
     const unicornId = req.params.id
+    console.log(unicornId)
 
     const unicorn = Unicorn.findById(unicornId)
+
 
     res.status(200).json({ unicorn: unicorn })
   } catch(error){
